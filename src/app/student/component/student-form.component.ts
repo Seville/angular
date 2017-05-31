@@ -28,7 +28,6 @@ export class StudentFormComponent implements OnInit {
 			
 	} 
 	
-	
 	enableEditMode(student){
 		this.selected = student;
 		this.editMode = true;

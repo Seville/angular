@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 import { Student } from '../models/student';
 
+
 @Injectable()
 export class StudentService{
 	private studentUrl = 'app/data/school.json'; //URL to web API

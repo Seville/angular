@@ -8,4 +8,5 @@ export class Student {
 		public note?: string
 	){ }
 	
+	
 }
