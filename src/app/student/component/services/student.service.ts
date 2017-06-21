@@ -15,17 +15,20 @@ export class StudentService{
 	
 	constructor (private http: Http) {}
 	
+	//Asynchronous call to get data from json file using Observable
 	getStudents(): Observable<Student[]> {
 		return this.http.get(this.studentUrl)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
 	
+	//Convert response to json
 	private extractData(res: Response) {
 		let body = res.json();
 		return body.data || { };
 	}
 	
+	//Error handling
 	private handleError (error: Response | any) {
 	  let errMsg: string;
 	  if (error instanceof Response) {

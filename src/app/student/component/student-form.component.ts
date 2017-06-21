@@ -19,6 +19,7 @@ export class StudentFormComponent implements OnInit {
 	
 	ngOnInit() { this.getStudents();}
 	
+	//getStudents() method calls studentService to get student list details
 	getStudents() {
 		this.studentService.getStudents()
 			.subscribe(
@@ -28,12 +29,14 @@ export class StudentFormComponent implements OnInit {
 			
 	} 
 	
+	//Show Edit/Add student form
 	showEditForm(student: Student | null){
 		if(student !== null){
 			this.selected = student
 		}
 		this.editMode = true;
 	}
+	
 	
 	selected = new Student('','','','','');
 	submitted = false;
