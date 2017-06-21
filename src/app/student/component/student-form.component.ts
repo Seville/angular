@@ -28,22 +28,23 @@ export class StudentFormComponent implements OnInit {
 			
 	} 
 	
-	enableEditMode(student){
-		this.selected = student;
+	showEditForm(student: Student | null){
+		if(student !== null){
+			this.selected = student
+		}
 		this.editMode = true;
 	}
 	
-	selected = new Student(0, "Jane", 12, "female", "unknown");
+	selected = new Student();
 	
 	submitted = false;
 	
 	editMode = false;
 	
-	onSubmit(){ 
+	onSubmit(student: Student){
+		debugger;
 		this.submitted = true; 
 	}
-	
-
 	
 	//TODO: Remove this when we're done
 	get diagnostic() { return JSON.stringify(this.students); }

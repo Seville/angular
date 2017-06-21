@@ -15,7 +15,7 @@ var StudentFormComponent = (function () {
     function StudentFormComponent(studentService) {
         this.studentService = studentService;
         this.mode = 'Observable';
-        this.selected = new student_1.Student(0, "Jane", 12, "female", "unknown");
+        this.selected = new student_1.Student();
         this.submitted = false;
         this.editMode = false;
     }
@@ -25,11 +25,14 @@ var StudentFormComponent = (function () {
         this.studentService.getStudents()
             .subscribe(function (students) { return _this.students = students; }, function (error) { return _this.errorMessage = error; });
     };
-    StudentFormComponent.prototype.enableEditMode = function (student) {
-        this.selected = student;
+    StudentFormComponent.prototype.showEditForm = function (student) {
+        if (student !== null) {
+            this.selected = student;
+        }
         this.editMode = true;
     };
-    StudentFormComponent.prototype.onSubmit = function () {
+    StudentFormComponent.prototype.onSubmit = function (student) {
+        debugger;
         this.submitted = true;
     };
     Object.defineProperty(StudentFormComponent.prototype, "diagnostic", {
