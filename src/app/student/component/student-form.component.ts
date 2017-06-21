@@ -35,14 +35,11 @@ export class StudentFormComponent implements OnInit {
 		this.editMode = true;
 	}
 	
-	selected = new Student();
-	
+	selected = new Student('','','','','');
 	submitted = false;
-	
 	editMode = false;
 	
 	onSubmit(student: Student){
-		debugger;
 		this.submitted = true; 
 	}
 	

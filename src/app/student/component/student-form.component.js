@@ -15,7 +15,7 @@ var StudentFormComponent = (function () {
     function StudentFormComponent(studentService) {
         this.studentService = studentService;
         this.mode = 'Observable';
-        this.selected = new student_1.Student();
+        this.selected = new student_1.Student('', '', '', '', '');
         this.submitted = false;
         this.editMode = false;
     }
@@ -32,7 +32,6 @@ var StudentFormComponent = (function () {
         this.editMode = true;
     };
     StudentFormComponent.prototype.onSubmit = function (student) {
-        debugger;
         this.submitted = true;
     };
     Object.defineProperty(StudentFormComponent.prototype, "diagnostic", {
