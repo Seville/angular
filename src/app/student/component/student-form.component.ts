@@ -19,6 +19,7 @@ export class StudentFormComponent implements OnInit {
 	
 	ngOnInit() { this.getStudents();}
 	
+	//getStudents() method calls studentService to get student list details
 	getStudents() {
 		this.studentService.getStudents()
 			.subscribe(
@@ -28,22 +29,22 @@ export class StudentFormComponent implements OnInit {
 			
 	} 
 	
-	enableEditMode(student){
-		this.selected = student;
+	//Show Edit/Add student form
+	showEditForm(student: Student | null){
+		if(student !== null){
+			this.selected = student
+		}
 		this.editMode = true;
 	}
 	
-	selected = new Student(0, "Jane", 12, "female", "unknown");
 	
+	selected = new Student('','','','','');
 	submitted = false;
-	
 	editMode = false;
 	
-	onSubmit(){ 
+	onSubmit(student: Student){
 		this.submitted = true; 
 	}
-	
-
 	
 	//TODO: Remove this when we're done
 	get diagnostic() { return JSON.stringify(this.students); }
